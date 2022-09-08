@@ -3,21 +3,36 @@ import CircleButton from "./CircleButton.js";
 
 const buttonSize = "75px";
 
+const buttonContentList = [
+  ["R", "red"],
+  ["O", "orange"],
+  ["Y", "yellow"],
+  ["G", "green"],
+  ["B", "blue"],
+  ["I", "purple"],
+  ["V", "violet"],
+];
+
+function listToButtons(list) {
+  return list.map((x) => {
+    var label = x[0];
+    var color = x[1];
+    return <CircleButton value={label} size={buttonSize} color={color} />;
+  });
+}
+
 const ButtonBar = (props) => {
   return (
     <div
       className="ButtonBar"
       style={{
-        backgroundColor: 'grey',
+        backgroundColor: "rgb(30, 30, 30)",
+        padding: "15px",
+        borderRadius: "20px",
+        boxShadow: "5px 5px 10px rgb(0, 0, 0)",
       }}
     >
-      <CircleButton value="R" size={buttonSize} color="red" />
-      <CircleButton value="O" size={buttonSize} color="orange" />
-      <CircleButton value="Y" size={buttonSize} color="yellow" />
-      <CircleButton value="G" size={buttonSize} color="green" />
-      <CircleButton value="B" size={buttonSize} color="blue" />
-      <CircleButton value="I" size={buttonSize} color="purple" />
-      <CircleButton value="V" size={buttonSize} color="violet" />
+      {listToButtons(buttonContentList)}
     </div>
   );
 };
