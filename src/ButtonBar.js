@@ -17,7 +17,10 @@ function listToButtons(list) {
   return list.map((x) => {
     var label = x[0];
     var color = x[1];
-    return <CircleButton value={label} size={buttonSize} color={color} />;
+    var key = Math.random();
+    return (
+      <CircleButton key={key} value={label} size={buttonSize} color={color} />
+    );
   });
 }
 
